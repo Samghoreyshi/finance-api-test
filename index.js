@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 5000
 const express = require('express');
 const app = express();
 const { response } = require('express');
+const cors = require('cors');
+app.use(cors())
 
 
 app.get('/results', function(req, res) {
