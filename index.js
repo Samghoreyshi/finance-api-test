@@ -1,4 +1,3 @@
-// import { lookup, history } from 'yahoo-stocks';
 const yf = require('yahoo-stocks');
 const {lookup, history} = require('yahoo-stocks')
 const PORT = process.env.PORT || 5000
@@ -11,8 +10,8 @@ app.use(cors())
 
 app.get('/results', function(req, res) {
     
-    history('AAPL').then(response => {
-        console.log("Function Running Correctly")
+    history('EURUSD=X').then(response => {
+        console.log("Good!")
         res.json(response);
 
     });
