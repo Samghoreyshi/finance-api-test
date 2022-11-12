@@ -11,7 +11,7 @@ app.use(cors())
 
 app.get('/results', function(req, res) {
     
-    history('AAPL').then(response => {
+    history('EURUSD=X').then(response => {
         console.log("Function Running Correctly")
         res.json(response);
 
