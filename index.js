@@ -5,14 +5,45 @@ const express = require('express');
 const app = express();
 const { response } = require('express');
 const cors = require('cors');
+
+
+const print = console.log;
+
+
 app.use(cors())
 
 
-app.get('/results', function(req, res) {
+app.get('/dxy', function(req, res) {
     
-    history('EURUSD=X').then(response => {
-        console.log("Good!")
-        res.json(response);
+    history('DX=F', {range: "1d", interval:"1m"}).then(response => {
+        print("Good!")
+        print(response.previousClose);
+        res.json(response.records);
+
+    });
+
+
+})
+
+
+app.get('/btc', function(req, res) {
+    
+    history('BTC-USD', {range: "1d", interval:"1m"}).then(response => {
+        print("Good!")
+        print(response.previousClose);
+        res.json(response.records);
+
+    });
+
+
+})
+
+app.get('/qqq', function(req, res) {
+    
+    history('QQQ', {range: "1d", interval:"1m"}).then(response => {
+        print("Good!")
+        print(response.previousClose);
+        res.json(response.records);
 
     });
 
@@ -21,4 +52,5 @@ app.get('/results', function(req, res) {
 
 
 
-app.listen(PORT, () => console.log('SERVER RUNNING ON PORT: ' + PORT))
+
+app.listen(PORT, () => print('SERVER RUNNING ON PORT: ' + PORT))
