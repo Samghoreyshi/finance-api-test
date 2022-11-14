@@ -15,7 +15,7 @@ app.use(cors())
 
 app.get('/dxy', function(req, res) {
     
-    history('DX=F', {range: "1d", interval:"1m"}).then(response => {
+    history('DX=F', {range: "1d", interval:"5m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
@@ -40,7 +40,19 @@ app.get('/btc', function(req, res) {
 
 app.get('/qqq', function(req, res) {
     
-    history('QQQ', {range: "1d", interval:"1m"}).then(response => {
+    history('QQQ', {range: "1d", interval:"5m"}).then(response => {
+        print("Good!")
+        print(response.previousClose);
+        res.json(response.records);
+
+    });
+
+
+})
+
+app.get('/emini', function(req, res) {
+    
+    history('ES=F', {range: "1d", interval:"5m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
