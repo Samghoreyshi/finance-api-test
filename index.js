@@ -15,7 +15,7 @@ app.use(cors())
 
 app.get('/dxy', function(req, res) {
     
-    history('DX=F', {range: "5d", interval:"1m"}).then(response => {
+    history('DX=F', {range: "m", interval:"1m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
@@ -28,7 +28,7 @@ app.get('/dxy', function(req, res) {
 
 app.get('/btc', function(req, res) {
     
-    history('BTC-USD', {range: "3m", interval:"5m"}).then(response => {
+    history('BTC-USD', {range: "m", interval:"5m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
@@ -40,7 +40,7 @@ app.get('/btc', function(req, res) {
 
 app.get('/qqq', function(req, res) {
     
-    history('QQQ', {range: "1d", interval:"1m"}).then(response => {
+    history('QQQ', {range: "1d", interval:"5m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
@@ -52,7 +52,7 @@ app.get('/qqq', function(req, res) {
 
 app.get('/emini', function(req, res) {
     
-    history('ES=F', {range: "1d", interval:"15m"}).then(response => {
+    history('ES=F', {range: "1d", interval:"1m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
