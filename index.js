@@ -28,7 +28,7 @@ app.get('/dxy', function(req, res) {
 
 app.get('/btc', function(req, res) {
     
-    history('BTC-USD', {range: "1m", interval:"15m"}).then(response => {
+    history('BTC-USD', {range: "m", interval:"15m"}).then(response => {
         print("Good!")
         print(response.previousClose);
         res.json(response.records);
